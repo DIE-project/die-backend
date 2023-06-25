@@ -1,39 +1,35 @@
 import DataTypes from "sequelize";
-import database from "../config/database.js";
-
-const dataTypes = DataTypes;
-
-const db = database;
+import db from "../config/database.js";
 
 const Inscripcion = db.define("inscripcion", {
   nombre: {
-    type: dataTypes.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   apellido: {
-    type: dataTypes.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   email: {
-    type: dataTypes.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
     unique: true,
   },
   telefono: {
-    type: dataTypes.STRING,
+    type: DataTypes.STRING,
   },
   empresa: {
-    type: dataTypes.STRING,
+    type: DataTypes.STRING,
   },
   cargo: {
-    type: dataTypes.STRING,
+    type: DataTypes.STRING,
   },
   mensaje: {
-    type: dataTypes.STRING,
+    type: DataTypes.STRING,
   },
   fechaInscripcion: {
-    type: dataTypes.DATE,
-    defaultValue: dataTypes.NOW,
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW,
   },
 });
 
