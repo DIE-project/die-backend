@@ -8,21 +8,25 @@ import {
   getInscriptions,
   updateInscription,
 } from "../controllers/inscription.controller.js";
+import { signUp } from "../controllers/user.controller.js";
 
 const router = Router();
 
+router.post("/api/signup", signUp);
 router.get("/", index);
-
 router.get("/api/contact", contact);
-
 router.post("/api/create_inscription", createInscription);
-
 router.get("/api/get_inscriptions", getInscriptions);
-
 router.get("/api/get_inscription/:id", getInscriptionById);
+router.put(
+  "/api/update_inscription/:id",
 
-router.put("/api/update_inscription/:id", updateInscription);
+  updateInscription
+);
+router.delete(
+  "/api/delete_inscription/:id",
 
-router.delete("/api/delete_inscription/:id", deleteInscription);
+  deleteInscription
+);
 
 export default router;
