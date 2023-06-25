@@ -1,11 +1,11 @@
-import Inscripcion from "../models/Inscription.js";
+import Inscription from "../models/Inscription.js";
 
-export const createInscripcion = async (req, res) => {
+export const createInscription = async (req, res) => {
   try {
     const { nombre, apellido, email, telefono, empresa, cargo, mensaje } =
       req.body;
 
-    const inscripcion = await Inscripcion.create({
+    const inscription = await Inscription.create({
       nombre,
       apellido,
       email,
@@ -15,7 +15,7 @@ export const createInscripcion = async (req, res) => {
       mensaje,
     });
 
-    return res.status(201).json({ success: true, data: inscripcion });
+    return res.status(201).json({ success: true, data: inscription });
   } catch (error) {
     console.error(error);
     return res
@@ -24,11 +24,11 @@ export const createInscripcion = async (req, res) => {
   }
 };
 
-export const getInscripciones = async (req, res) => {
+export const getInscriptions = async (req, res) => {
   try {
-    const inscripciones = await Inscripcion.findAll();
+    const inscriptions = await Inscription.findAll();
 
-    return res.status(200).json({ success: true, data: inscripciones });
+    return res.status(200).json({ success: true, data: inscriptions });
   } catch (error) {
     console.error(error);
     return res
@@ -37,23 +37,23 @@ export const getInscripciones = async (req, res) => {
   }
 };
 
-export const getInscripcionById = async (req, res) => {
+export const getInscriptionById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const inscripcion = await Inscripcion.findOne({
+    const inscription = await Inscription.findOne({
       where: {
         id,
       },
     });
 
-    if (!inscripcion) {
+    if (!inscription) {
       return res
         .status(404)
         .json({ success: false, error: "Inscripción no encontrada" });
     }
 
-    return res.status(200).json({ success: true, data: inscripcion });
+    return res.status(200).json({ success: true, data: inscription });
   } catch (error) {
     console.error(error);
     return res
@@ -62,25 +62,25 @@ export const getInscripcionById = async (req, res) => {
   }
 };
 
-export const updateInscripcion = async (req, res) => {
+export const updateInscription = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const inscripcion = await Inscripcion.findOne({
+    const inscription = await Inscription.findOne({
       where: {
         id,
       },
     });
 
-    if (!inscripcion) {
+    if (!inscription) {
       return res
         .status(404)
         .json({ success: false, error: "Inscripción no encontrada" });
     }
 
-    const updatedInscripcion = await inscripcion.update(req.body);
+    const updatedInscription = await inscription.update(req.body);
 
-    return res.status(200).json({ success: true, data: updatedInscripcion });
+    return res.status(200).json({ success: true, data: updatedInscription });
   } catch (error) {
     console.error(error);
     return res
@@ -89,23 +89,23 @@ export const updateInscripcion = async (req, res) => {
   }
 };
 
-export const deleteInscripcion = async (req, res) => {
+export const deleteInscription = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const inscripcion = await Inscripcion.findOne({
+    const inscription = await Inscription.findOne({
       where: {
         id,
       },
     });
 
-    if (!inscripcion) {
+    if (!inscription) {
       return res
         .status(404)
         .json({ success: false, error: "Inscripción no encontrada" });
     }
 
-    await inscripcion.destroy();
+    await inscription.destroy();
 
     return res.status(200).json({ success: true, data: {} });
   } catch (error) {

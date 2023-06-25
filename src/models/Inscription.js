@@ -1,7 +1,7 @@
 import DataTypes from "sequelize";
 import db from "../config/database.js";
 
-const Inscripcion = db.define("inscripcion", {
+const Inscription = db.define("inscripcion", {
   nombre: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -33,4 +33,4 @@ const Inscripcion = db.define("inscripcion", {
   },
 });
 
-export default Inscripcion;
+export default Inscription;

@@ -2,27 +2,27 @@ import { Router } from "express";
 import { contact } from "../controllers/contact.controller.js";
 import { index } from "../controllers/index.controller.js";
 import {
-  createInscripcion,
-  deleteInscripcion,
-  getInscripcionById,
-  getInscripciones,
-  updateInscripcion,
+  createInscription,
+  deleteInscription,
+  getInscriptionById,
+  getInscriptions,
+  updateInscription,
 } from "../controllers/inscription.controller.js";
 
 const router = Router();
 
 router.get("/", index);
 
-router.get("/contact", contact);
+router.get("/api/contact", contact);
 
-router.post("/createinscription", createInscripcion);
+router.post("/api/create_inscription", createInscription);
 
-router.get("/getinscriptions", getInscripciones);
+router.get("/api/get_inscriptions", getInscriptions);
 
-router.get("/getinscription/:id", getInscripcionById);
+router.get("/api/get_inscription/:id", getInscriptionById);
 
-router.put("/updateinscription/:id", updateInscripcion);
+router.put("/api/update_inscription/:id", updateInscription);
 
-router.delete("/deleteinscription/:id", deleteInscripcion);
+router.delete("/api/delete_inscription/:id", deleteInscription);
 
 export default router;
