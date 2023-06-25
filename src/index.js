@@ -16,8 +16,8 @@ app.use(pagesRoutes);
 
 db.sync();
 
-const PORT = process.env.PORT || 3000;
+const port = PORT || 3000;
 
-app.listen(PORT);
+app.listen(port);
 
-console.log("Die backend listening on port", PORT);
+console.log("Die backend listening on port", port);
