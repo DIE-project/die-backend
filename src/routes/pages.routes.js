@@ -34,6 +34,15 @@ import {
   updateEmprendedor,
 } from "../controllers/emprendedor.controller.js";
 
+//Invitations
+import {
+  createInvitation,
+  deleteInvitation,
+  getInvitationById,
+  getInvitations,
+  updateInvitation,
+} from "../controllers/invitation.controller.js";
+
 const router = Router();
 
 //index
@@ -65,5 +74,12 @@ router.delete("/api/delete_emprendedor/:id", deleteEmprendedor);
 
 //Emprendedores destacados
 router.get("/api/get_emprendedores_destacados", getEmprendedoresDestacados);
+
+//Invitations
+router.post("/api/create_invitation", createInvitation);
+router.get("/api/get_invitations", getInvitations);
+router.get("/api/get_invitation/:id", getInvitationById);
+router.put("/api/update_invitation/:id", updateInvitation);
+router.delete("/api/delete_invitation/:id", deleteInvitation);
 
 export default router;
