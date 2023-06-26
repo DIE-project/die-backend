@@ -20,9 +20,14 @@ Emprendedor.init(
       allowNull: false,
       unique: false,
     },
+    descripcion: {
+      type: DataTypes.STRING(),
+      allowNull: false,
+      unique: false,
+    },
     correo: {
       type: DataTypes.STRING(50),
-      allowNull: false,
+      allowNull: true,
       unique: false,
     },
     telefono: {
@@ -30,8 +35,33 @@ Emprendedor.init(
       allowNull: false,
       unique: false,
     },
-    direccion: {
+    celular: {
       type: DataTypes.STRING(50),
+      allowNull: false,
+      unique: false,
+    },
+    direccion: {
+      type: DataTypes.STRING(),
+      allowNull: true,
+      unique: false,
+    },
+    web: {
+      type: DataTypes.STRING(),
+      allowNull: false,
+      unique: true,
+    },
+    redes: {
+      type: DataTypes.STRING(),
+      allowNull: false,
+      unique: false,
+    },
+    imagen: {
+      type: DataTypes.STRING(),
+      allowNull: false,
+      unique: false,
+    },
+    destacado: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
       unique: false,
     },

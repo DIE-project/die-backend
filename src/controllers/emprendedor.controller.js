@@ -2,13 +2,31 @@ import Emprendedor from "../models/Emprendedor.js";
 
 export const createEmprendedor = async (req, res) => {
   try {
-    const { nombre, apellido, correo, telefono, direccion } = req.body;
+    const {
+      nombre,
+      apellido,
+      descripcion,
+      correo,
+      telefono,
+      celular,
+      direccion,
+      web,
+      redes,
+      imagen,
+      destacado,
+    } = req.body;
     const emprendedor = await Emprendedor.create({
       nombre,
       apellido,
+      descripcion,
       correo,
       telefono,
+      celular,
       direccion,
+      web,
+      redes,
+      imagen,
+      destacado,
     });
 
     return res.status(201).json({ success: true, data: emprendedor });
@@ -61,7 +79,19 @@ export const getEmprendedorById = async (req, res) => {
 export const updateEmprendedor = async (req, res) => {
   try {
     const { id } = req.params;
-    const { nombre, apellido, correo, telefono, direccion } = req.body;
+    const {
+      nombre,
+      apellido,
+      descripcion,
+      correo,
+      telefono,
+      celular,
+      direccion,
+      web,
+      redes,
+      imagen,
+      destacado,
+    } = req.body;
 
     const emprendedor = await Emprendedor.findOne({
       where: {
@@ -78,9 +108,15 @@ export const updateEmprendedor = async (req, res) => {
     await emprendedor.update({
       nombre,
       apellido,
+      descripcion,
       correo,
       telefono,
+      celular,
       direccion,
+      web,
+      redes,
+      imagen,
+      destacado,
     });
 
     return res.status(200).json({ success: true, data: emprendedor });
@@ -118,5 +154,23 @@ export const deleteEmprendedor = async (req, res) => {
     return res
       .status(500)
       .json({ success: false, error: "Error al eliminar el emprendedor" });
+  }
+};
+
+export const getEmprendedoresDestacados = async (req, res) => {
+  try {
+    const destacados = await Emprendedor.findAll({
+      where: {
+        destacado: true,
+      },
+    });
+
+    return res.status(200).json({ success: true, data: destacados });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      error: "Error al obtener los emprendedores destacados",
+    });
   }
 };
