@@ -30,6 +30,7 @@ import {
   deleteEmprendedor,
   getEmprendedorById,
   getEmprendedores,
+  getEmprendedoresDestacados,
   updateEmprendedor,
 } from "../controllers/emprendedor.controller.js";
 
@@ -61,5 +62,8 @@ router.get("/api/get_emprendedores", getEmprendedores);
 router.get("/api/get_emprendedor/:id", getEmprendedorById);
 router.put("/api/update_emprendedor/:id", updateEmprendedor);
 router.delete("/api/delete_emprendedor/:id", deleteEmprendedor);
+
+//Emprendedores destacados
+router.get("/api/get_emprendedores_destacados", getEmprendedoresDestacados);
 
 export default router;
