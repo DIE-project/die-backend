@@ -1,0 +1,1 @@
+ALTER TABLE emprendedores DROP COLUMN id_usuario;
